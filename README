@@ -1,0 +1,8 @@
+/src/main/resources
+app.properties - image.directory = /home/hope/images/ (Укзываете папку для изображений)
+
+data.properties - sql.server.username = логин от бд
+                  sql.server.password = пароль от бд
+
+mvn clean
+mvn install
