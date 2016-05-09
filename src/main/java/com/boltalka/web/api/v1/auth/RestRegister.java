@@ -34,7 +34,6 @@ public class RestRegister {
         user.setUsername(username);
         user.setNickname(nickname);
         user.setPassword(password);
-        user.setRole(Roles.ROLE_USER);
         CommandStatus commandStatus = userService.register(user);
         return new ResponseResult(commandStatus);
     }

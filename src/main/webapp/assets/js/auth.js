@@ -3,7 +3,7 @@ var loginPassword = document.getElementById("loginPassword");
 var remember = document.getElementById("remember");
 
 function login() {
-    $.post("/login", {
+    $.post(context + "/login", {
             username : loginUsername.value,
             password : loginPassword.value,
             'remember-me' : get_remember()
@@ -11,7 +11,7 @@ function login() {
         .done(function(data) {
             switch (data.result) {
                 case "OK":
-                    location="/";
+                    location=context + "/";
                     break;
                 case "ANONYM":
                     show_message("Неправильный логин или пароль", 'danger');
@@ -23,14 +23,14 @@ function login() {
 }
 
 function loginRequest(username, password) {
-    $.post("/login", {
+    $.post(context + "/login", {
             username : username,
             password : password
         })
         .done(function(data) {
             switch (data.result) {
                 case "OK":
-                    location="/";
+                    location=context + "/";
                     break;
                 default:
                     show_message("Произошла неизвестная ошибка при попытке авторизации", 'danger');
@@ -55,4 +55,4 @@ function get_remember() {
     }
 }
 
-$(function(){$('#register').attr({'action': '/register', 'method': 'post'});});
+$(function(){$('#register').attr({'action': context + '/register', 'method': 'post'});});

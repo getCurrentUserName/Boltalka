@@ -1,3 +1,5 @@
+see DOCKER
+
 /src/main/resources
 app.properties - image.directory = /home/hope/images/ (Укзываете папку для изображений)
 

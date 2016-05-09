@@ -14,6 +14,8 @@ public class BaseService {
     @Autowired
     private BaseDAO baseDAO;
 
+    public static final int number = 0;
+
     /** Поиск по ID */
     public <T> T findById(Class<T> type, final UUID id) {
         return baseDAO.findById(type, id);

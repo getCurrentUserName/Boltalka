@@ -3,6 +3,12 @@ body {
     /*background-color: #fafafa; */
 }
 
+.conversationDiv {
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+}
 
 .form-login {
     max-width: 330px;

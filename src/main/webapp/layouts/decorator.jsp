@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="ru" xmlns:sitemesh="sitemesh">
@@ -7,13 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="UTF-8">
     <title>Boltalka</title>
-    <link rel="stylesheet" href="/assets/bootstrap/fonts/glyphicons-halflings-regular.ttf">
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/assets/style/auth.css">
+    <link rel="stylesheet" href="<c:url value="/assets/bootstrap/fonts/glyphicons-halflings-regular.ttf"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/bootstrap/css/bootstrap-theme.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/bootstrap/css/bootstrap.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/style/auth.css"/>">
 </head>
-<body>
-<nav class="navbar navbar-default navbar-static-top">
+<body id="body">
+<script type="application/javascript">
+    var context = '${pageContext.request.contextPath}';
+</script>
+<nav class="navbar navbar-default navbar-static-top" id="menu">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -22,19 +26,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Boltalka</a>
+            <a class="navbar-brand" href="<c:url value="/"/>">Boltalka</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Новости</a></li>
+                <li class="${menuNews}"><a href="<c:url value="/news"/>">Новости</a></li>
                 <li><a href="#">О нас</a></li>
                 <li><a href="#">Контакты</a></li>
-                <li><a href="/room">Комнаты</a></li>
+                <li><a href="<c:url value="/room"/>">Чаты</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="${menuLogin}"><a href="#" data-toggle="modal" data-target="#loginModal">Вход</a></li>
-                <li class="${menuRegister}"><a href="/register">Регистрация</a></li>
+                <li class="${menuRegister}"><a href="<c:url value="/register"/>">Регистрация</a></li>
             </ul>
         </div>
     </div>
@@ -72,12 +76,12 @@
     </div>
 </div>
 
-<script src="/assets/jquery/jquery-2.2.3.min.js"></script>
-<script async src="/assets/bootstrap/js/bootstrap.js"></script>
-<script async src="/assets/ws/sockjs-0.3.4.js"></script>
-<script async src="/assets/ws/stomp.js"></script>
-<script async src="/assets/jquery/jquery.bsAlerts.min.js"></script>
-<script async src="/assets/js/auth.js"></script>
-<script async src="/assets/js/anon/room.js"></script>
+<script src="<c:url value="/assets/jquery/jquery-2.2.3.min.js"/>"></script>
+<script async src="<c:url value="/assets/bootstrap/js/bootstrap.js"/>"></script>
+<script async src="<c:url value="/assets/ws/sockjs-0.3.4.js"/>"></script>
+<script async src="<c:url value="/assets/ws/stomp.js"/>"></script>
+<script async src="<c:url value="/assets/jquery/jquery.bsAlerts.min.js"/>"></script>
+<script async src="<c:url value="/assets/js/auth.js"/>"></script>
+<script async src="<c:url value="/assets/js/anon/room.js"/>"></script>
 </body>
 </html>

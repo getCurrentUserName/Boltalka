@@ -2,6 +2,7 @@ var stompClient = null;
 var roomName = document.getElementById('roomName');
 
 function setConnected(connected) {
+    document.getElementById('menu').classList.add("navbar-fixed-top");
     document.getElementById('connect').disabled = connected;
     document.getElementById('disconnect').disabled = !connected;
     document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
@@ -11,12 +12,12 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('/anon');
+    var socket = new SockJS(context + '/anon');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/anon/' + roomName.value, function(text){
+        stompClient.subscribe(context + '/topic/anon/' + roomName.value, function(text){
             showMessage(text.body);
         });
     });
@@ -33,7 +34,7 @@ function disconnect() {
 function sendMessage() {
     var text = document.getElementById('text').value;
     $("#text").val("");
-    stompClient.send("/app/anon/" + roomName.value, {},  text);
+    stompClient.send(context + "/app/anon/" + roomName.value, {},  text);
 }
 
 function showMessage(text) {
