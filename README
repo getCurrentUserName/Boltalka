@@ -1,5 +1,8 @@
 see DOCKER
 
+docker build -t boltalka .
+docker run -ti -p 88:8080 boltalka
+
 /src/main/resources
 app.properties - image.directory = /home/hope/images/ (Укзываете папку для изображений)
 
